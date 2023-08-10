@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+void sortStack(stack<int> &stack)
+{int s=stack.size();
+vector<int>vect;
+while(!stack.empty())
+{
+	vect.push_back(stack.top());
+	stack.pop();
+
+}
+sort(vect.begin(),vect.end());
+for(auto u:vect)
+{
+	stack.push(u);
+}
+}	
