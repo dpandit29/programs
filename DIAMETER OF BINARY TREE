@@ -1,0 +1,29 @@
+class Solution {
+    private:
+    int height(TreeNode* root)
+    {   
+        TreeNode* temp=root;
+        if(temp==NULL)
+        {
+            return 0;
+        }
+        int left=height(temp->left);
+        int right=height(temp->right);
+        int ans=max(left,right)+1;
+        return ans;
+    }
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+        TreeNode* temp=root;
+        if(temp==NULL)
+        {
+            return 0;
+        }
+        int op1=diameterOfBinaryTree(temp->left);
+        int op2=diameterOfBinaryTree(temp->right);
+        int op3=height(temp->left)+height(temp->right);
+        int ans= max(op1,max(op2,op3));
+        return ans;
+        
+    }
+};
