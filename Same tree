@@ -1,0 +1,44 @@
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        TreeNode* r1=p;
+        TreeNode* r2=q;
+        if(r1==NULL && r2==NULL)
+        {
+            return true;
+        }
+         if(r1!=NULL && r2==NULL)
+        {
+            return false;
+        }
+         if(r1==NULL && r2!=NULL)
+        {
+            return false;
+        }
+        bool left=isSameTree(r1->left,r2->left);
+        bool right=isSameTree(r1->right,r2->right);
+        bool asd;
+        if(r1->val==r2->val)
+        {
+            asd=true;
+        }
+        else
+        {
+            return false;
+        }
+
+
+
+
+        
+        if(left && right && asd)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+};
