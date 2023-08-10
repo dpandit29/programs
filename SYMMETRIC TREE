@@ -1,0 +1,50 @@
+class Solution {
+    private:
+    bool copy(TreeNode* r1,TreeNode* r2)
+    {
+        if(r1==NULL && r2==NULL)
+        {
+            return true;
+        }
+        if(r1!=NULL && r2==NULL)
+        {
+            return false;
+        }
+        if(r1==NULL && r2!=NULL)
+        {
+            return false;
+        }
+        bool left=copy(r1->left,r2->right);
+        bool right=copy(r1->right,r2->left);
+        bool comp;
+        if(r1->val==r2->val)
+        {
+            comp=true;
+        }
+        else
+        {
+            return false;
+        }
+
+
+
+        
+        if(left && right && comp)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+public:
+    bool isSymmetric(TreeNode* root) {
+        TreeNode* r1=root->left;
+        TreeNode* r2=root->right;
+        bool check;
+        check=copy(r1,r2);
+        return check;
+    
+    }
+};
